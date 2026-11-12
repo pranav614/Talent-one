@@ -8,5 +8,5 @@ export function AdminLogout() {
     await fetch("/api/admin/session", { method: "DELETE" });
     router.replace("/admin");
   }
-  return <button className="font-medium text-ink-muted hover:text-brand" onClick={logout} type="button">Sign out</button>;
+  return <button className="button-secondary" onClick={logout} type="button">Lock</button>;
 }

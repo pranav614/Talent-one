@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 const navigation = [
   { href: "/jobs", label: "Find a job" },
+  { href: "/services", label: "Services" },
   { href: "/employers", label: "For employers" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

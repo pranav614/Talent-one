@@ -27,10 +27,10 @@ export function AdminLogin() {
   return <div className="mx-auto max-w-md py-8"><section className="surface-card p-7 sm:p-10">
     <p className="eyebrow">Talent One · Admin</p>
     <h1 className="mt-4 text-3xl font-bold tracking-tight text-ink">Admin access</h1>
-    <p className="mt-4 leading-7 text-ink-muted">Enter the PIN configured in your Supabase admin_pincode table.</p>
+    <p className="mt-4 leading-7 text-ink-muted">Enter your PIN to view messages.</p>
     <form className="mt-7 space-y-5" onSubmit={submit}>
-      <div><label className="field-label" htmlFor="admin-pin">Admin PIN</label><input autoComplete="current-password" className="field-control" id="admin-pin" inputMode="numeric" maxLength={16} minLength={4} onChange={(event) => setPin(event.target.value)} pattern="[0-9]{4,16}" required type="password" value={pin} /></div>
-      <button className="button-primary w-full" disabled={busy} type="submit">{busy ? "Signing in…" : "Sign in"}</button>
+      <div><label className="field-label" htmlFor="admin-pin">PIN</label><input autoComplete="current-password" className="field-control" id="admin-pin" inputMode="numeric" maxLength={16} minLength={4} onChange={(event) => setPin(event.target.value)} pattern="[0-9]{4,16}" placeholder="Enter PIN" required type="password" value={pin} /></div>
+      <button className="button-primary" disabled={busy} type="submit">{busy ? "Unlocking…" : "Unlock"}</button>
       {error ? <p aria-live="polite" className="text-sm text-red-700" role="alert">{error}</p> : null}
     </form>
   </section></div>;

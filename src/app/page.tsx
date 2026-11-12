@@ -8,7 +8,7 @@ export default function Home() {
         <div className="site-container py-20 sm:py-28 lg:py-32">
           <p className="eyebrow">Talent One</p>
           <h1 className="mt-8 max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-            Recruitment that finds the right people for the right roles.
+            Recruitment and workforce services for growing businesses.
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-ink-muted sm:text-xl">
             We connect skilled people with employers who value them, with honest
@@ -46,6 +46,28 @@ export default function Home() {
             Browse jobs
           </Link>
         </article>
+      </section>
+
+      <section className="bg-brand-surface">
+        <div className="site-container py-14 sm:py-20">
+          <p className="eyebrow">What we do</p>
+          <h2 className="section-title mt-4">Our services</h2>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {[
+              ["Recruitment", "Permanent hires matched to your team."],
+              ["Contract staffing", "Skilled people when you need them fast."],
+              ["Workforce consulting", "Practical advice on hiring and team planning."],
+            ].map(([title, description]) => (
+              <article className="surface-card p-6 sm:p-7" key={title}>
+                <h3 className="text-xl font-bold text-ink">{title}</h3>
+                <p className="mt-3 leading-7 text-ink-muted">{description}</p>
+              </article>
+            ))}
+          </div>
+          <Link className="button-secondary mt-7 inline-flex" href="/services">
+            See all services
+          </Link>
+        </div>
       </section>
 
       <section className="site-container pb-16 lg:pb-24">

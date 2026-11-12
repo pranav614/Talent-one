@@ -10,7 +10,7 @@ export function AdminShell({
   active?: "messages" | "jobs";
 }) {
   return (
-    <div className="min-h-full bg-white">
+    <div className={`min-h-full ${active ? "bg-white" : "bg-brand-surface"}`}>
       <header className="border-b border-line bg-white">
         <div className="site-container flex min-h-20 items-center justify-between gap-4 py-4">
           <Link className="brand-wordmark" href="/admin">
@@ -43,7 +43,10 @@ export function AdminShell({
           </Link>
         </nav>
       ) : null}
-      <main className="site-container py-10 sm:py-14">{children}</main>
+      <main className={active
+        ? "site-container py-10 sm:py-14"
+        : "site-container flex min-h-[calc(100vh-5rem)] items-center justify-center py-10"
+      }>{children}</main>
     </div>
   );
 }
