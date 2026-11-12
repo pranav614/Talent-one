@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
-import { jobTypes, sampleJobs, sectors } from "@/lib/jobs";
+import { useEffect, useMemo, useState } from "react";
+import { jobTypes, type Job, sectors } from "@/lib/jobs";
 
 export function JobBrowser() {
   const [keyword, setKeyword] = useState("");
@@ -10,12 +10,26 @@ export function JobBrowser() {
   const [sector, setSector] = useState("");
   const [type, setType] = useState("");
   const [expandedJob, setExpandedJob] = useState<string | null>(null);
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    fetch("/api/jobs")
+      .then(async (response) => {
+        if (!response.ok) throw new Error("Jobs are temporarily unavailable.");
+        return response.json() as Promise<Job[]>;
+      })
+      .then(setJobs)
+      .catch((reason: unknown) => setError(reason instanceof Error ? reason.message : "Unable to load jobs."))
+      .finally(() => setLoading(false));
+  }, []);
 
   const visibleJobs = useMemo(() => {
     const normalizedKeyword = keyword.trim().toLowerCase();
     const normalizedLocation = location.trim().toLowerCase();
 
-    return sampleJobs.filter((job) => {
+    return jobs.filter((job) => {
       if (job.status !== "Live") return false;
       const matchesKeyword =
         !normalizedKeyword ||
@@ -32,7 +46,7 @@ export function JobBrowser() {
         (!type || job.type === type)
       );
     });
-  }, [keyword, location, sector, type]);
+  }, [jobs, keyword, location, sector, type]);
 
   return (
     <div>
@@ -94,10 +108,10 @@ export function JobBrowser() {
       </form>
 
       <p className="my-8 text-base text-ink-muted" aria-live="polite">
-        {visibleJobs.length} {visibleJobs.length === 1 ? "job" : "jobs"} found
+        {loading ? "Loading jobs…" : error || `${visibleJobs.length} ${visibleJobs.length === 1 ? "job" : "jobs"} found`}
       </p>
 
-      {visibleJobs.length ? (
+      {loading ? null : visibleJobs.length ? (
         <ul className="space-y-5">
           {visibleJobs.map((job) => {
             const isExpanded = expandedJob === job.id;
@@ -145,7 +159,7 @@ export function JobBrowser() {
             );
           })}
         </ul>
-      ) : (
+      ) : error ? null : (
         <div className="surface-card px-6 py-12 text-center">
           <h2 className="text-xl font-bold text-ink">No roles match yet</h2>
           <p className="mt-2 text-ink-muted">

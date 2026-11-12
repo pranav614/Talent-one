@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { AdminLogout } from "@/components/admin-logout";
 
 export function AdminShell({
   children,
@@ -15,9 +16,10 @@ export function AdminShell({
           <Link className="brand-wordmark" href="/admin">
             TALENT ONE <span className="font-medium text-ink-muted">· Admin</span>
           </Link>
-          <Link className="font-medium text-ink-muted hover:text-brand" href="/">
-            View site
-          </Link>
+          <div className="flex items-center gap-5">
+            <Link className="font-medium text-ink-muted hover:text-brand" href="/">View site</Link>
+            {active ? <AdminLogout /> : null}
+          </div>
         </div>
       </header>
       {active ? (

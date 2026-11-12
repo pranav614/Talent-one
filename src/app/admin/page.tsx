@@ -1,30 +1,13 @@
-import Link from "next/link";
+import { redirect } from "next/navigation";
+import { AdminLogin } from "@/components/admin-login";
 import { AdminShell } from "@/components/admin-shell";
+import { isAdminAuthenticated } from "@/lib/admin-auth";
 
-export default function AdminPreviewPage() {
+export default async function AdminPage() {
+  if (await isAdminAuthenticated()) redirect("/admin/jobs");
   return (
     <AdminShell>
-      <div className="mx-auto max-w-2xl py-8">
-        <section className="surface-card p-7 sm:p-10">
-          <p className="eyebrow">Talent One · Demo</p>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Admin access
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-ink-muted">
-            This preview uses sample data. Authentication is not configured, so
-            this admin area is not protected and should not be used with real
-            or private information.
-          </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Link className="button-primary" href="/admin/messages">
-              Preview messages
-            </Link>
-            <Link className="button-secondary" href="/admin/jobs">
-              Preview jobs
-            </Link>
-          </div>
-        </section>
-      </div>
+      <AdminLogin />
     </AdminShell>
   );
 }
