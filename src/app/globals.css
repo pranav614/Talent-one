@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111d31;
+  --ink-muted: #49566b;
+  --line: #dce4ee;
+  --brand: #0b8175;
+  --brand-deep: #08685f;
+  --brand-soft: #e2f3f0;
+  --brand-surface: #f2f5f9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--foreground);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-surface: var(--brand-surface);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  min-height: 100%;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  .site-container {
+    @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .brand-wordmark {
+    @apply whitespace-nowrap text-lg font-extrabold tracking-tight text-ink sm:text-xl;
+  }
+
+  .eyebrow {
+    @apply text-sm font-bold uppercase tracking-[0.12em] text-brand;
+  }
+
+  .page-title {
+    @apply text-4xl font-bold leading-tight tracking-tight text-ink sm:text-6xl;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold tracking-tight text-ink sm:text-4xl;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-line bg-white;
+  }
+
+  .button-primary {
+    @apply inline-flex min-h-12 items-center justify-center rounded-lg bg-brand px-5 py-3 font-semibold text-white transition-colors hover:bg-brand-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
+  }
+
+  .button-secondary {
+    @apply inline-flex min-h-12 items-center justify-center rounded-lg border-2 border-ink px-5 py-3 font-semibold text-ink transition-colors hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
+  }
+
+  .button-selected {
+    @apply border-brand bg-brand text-white hover:bg-brand-deep hover:text-white;
+  }
+
+  .button-quiet {
+    @apply inline-flex min-h-12 items-center justify-center rounded-lg px-4 py-3 font-semibold text-ink-muted transition-colors hover:bg-brand-soft hover:text-brand-deep;
+  }
+
+  .field-label {
+    @apply mb-2 block text-sm font-semibold text-ink;
+  }
+
+  .field-control {
+    @apply min-h-12 w-full rounded-lg border border-slate-500 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20;
+  }
+}
