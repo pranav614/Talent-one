@@ -10,7 +10,7 @@ export function AdminShell({
   active?: "messages" | "jobs";
 }) {
   return (
-    <div className={`min-h-full ${active ? "bg-white" : "bg-brand-surface"}`}>
+    <div className={`min-h-full ${active ? "bg-white" : "gradient-panel"}`}>
       <header className="border-b border-line bg-white">
         <div className="site-container flex min-h-20 items-center justify-between gap-4 py-4">
           <Link className="brand-wordmark" href="/admin">

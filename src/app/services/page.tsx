@@ -19,7 +19,7 @@ const steps = [
 export default function ServicesPage() {
   return (
     <SiteShell>
-      <section className="bg-brand-surface">
+      <section className="gradient-panel">
         <div className="site-container py-16 sm:py-20 lg:py-24">
           <p className="eyebrow">Our services</p>
           <h1 className="mt-6 max-w-5xl text-4xl font-bold leading-tight tracking-tight text-ink sm:text-6xl">
@@ -44,7 +44,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-brand-surface">
+      <section className="gradient-panel">
         <div className="site-container py-14 sm:py-20">
           <h2 className="section-title">How we work with you</h2>
           <ol className="mt-8 grid gap-8 md:grid-cols-3">

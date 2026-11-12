@@ -34,11 +34,11 @@ body {
 
 @layer components {
   .site-container {
-    @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12;
+    @apply mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12;
   }
 
   .brand-wordmark {
-    @apply whitespace-nowrap text-lg font-extrabold tracking-tight text-ink sm:text-xl;
+    @apply whitespace-nowrap text-xl font-extrabold tracking-tight text-ink sm:text-2xl;
   }
 
   .eyebrow {
@@ -46,7 +46,7 @@ body {
   }
 
   .page-title {
-    @apply text-4xl font-bold leading-tight tracking-tight text-ink sm:text-6xl;
+    @apply text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-7xl;
   }
 
   .section-title {
@@ -54,15 +54,19 @@ body {
   }
 
   .surface-card {
-    @apply rounded-2xl border border-line bg-white;
+    @apply rounded-3xl border border-line border-t-[5px] border-t-brand bg-white shadow-[0_14px_40px_rgba(17,29,49,0.06)];
+  }
+
+  .surface-card-plain {
+    @apply rounded-3xl border border-line bg-white shadow-[0_14px_40px_rgba(17,29,49,0.06)];
   }
 
   .button-primary {
-    @apply inline-flex min-h-12 items-center justify-center rounded-lg bg-brand px-5 py-3 font-semibold text-white transition-colors hover:bg-brand-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
+    @apply inline-flex min-h-14 items-center justify-center rounded-full bg-brand px-7 py-4 font-semibold text-white shadow-[0_12px_24px_rgba(11,129,117,0.2)] transition-colors hover:bg-brand-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
   }
 
   .button-secondary {
-    @apply inline-flex min-h-12 items-center justify-center rounded-lg border-2 border-ink px-5 py-3 font-semibold text-ink transition-colors hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
+    @apply inline-flex min-h-14 items-center justify-center rounded-full border-2 border-ink px-7 py-4 font-semibold text-ink transition-colors hover:border-brand hover:text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand;
   }
 
   .button-selected {
@@ -73,11 +77,26 @@ body {
     @apply inline-flex min-h-12 items-center justify-center rounded-lg px-4 py-3 font-semibold text-ink-muted transition-colors hover:bg-brand-soft hover:text-brand-deep;
   }
 
+  .gradient-panel {
+    background: linear-gradient(112deg, #e8f6f3 0%, #eef4fa 68%, #f8fafc 100%);
+  }
+
   .field-label {
     @apply mb-2 block text-sm font-semibold text-ink;
   }
 
   .field-control {
     @apply min-h-12 w-full rounded-lg border border-slate-500 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20;
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-navigation {
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-navigation::-webkit-scrollbar {
+    display: none;
   }
 }

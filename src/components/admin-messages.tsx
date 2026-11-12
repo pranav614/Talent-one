@@ -99,7 +99,7 @@ export function AdminMessages() {
     {error ? <p aria-live="polite" className="mt-5 text-sm text-red-700" role="alert">{error}</p> : null}
     <p className="mt-6 text-sm text-ink-muted" aria-live="polite">{loading ? "Loading messages…" : `${visibleMessages.length} ${visibleMessages.length === 1 ? "message" : "messages"}`}</p>
     {loading ? null : <ul className="mt-5 space-y-5">
-      {visibleMessages.map((message) => <li className="surface-card flex flex-col gap-5 p-5 sm:p-7" key={message.id}>
+      {visibleMessages.map((message) => <li className="surface-card-plain flex flex-col gap-5 p-5 sm:p-7" key={message.id}>
         <div className="flex flex-col justify-between gap-4 sm:flex-row">
           <div>
             <div className="flex flex-wrap items-center gap-3"><h2 className="text-xl font-bold text-ink">{message.name}</h2><span className="rounded-full bg-brand-soft px-3 py-1 text-xs font-semibold text-brand-deep">{message.status}</span></div>
@@ -115,7 +115,7 @@ export function AdminMessages() {
           {message.status !== "Archived" ? <button className="button-secondary px-4 py-2" disabled={updatingId === message.id} onClick={() => changeStatus(message, "Archived")} type="button">Archive</button> : <button className="button-secondary px-4 py-2" disabled={updatingId === message.id} onClick={() => changeStatus(message, "New")} type="button">Restore</button>}
         </div>
       </li>)}
-      {!visibleMessages.length ? <li className="surface-card px-6 py-10 text-center text-ink-muted">No messages match these filters.</li> : null}
+      {!visibleMessages.length ? <li className="surface-card-plain px-6 py-10 text-center text-ink-muted">No messages match these filters.</li> : null}
     </ul>}
   </>;
 }

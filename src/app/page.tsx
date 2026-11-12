@@ -4,7 +4,7 @@ import { SiteShell } from "@/components/site-shell";
 export default function Home() {
   return (
     <SiteShell>
-      <section className="bg-brand-surface">
+      <section className="gradient-panel">
         <div className="site-container py-20 sm:py-28 lg:py-32">
           <p className="eyebrow">Talent One</p>
           <h1 className="mt-8 max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-6xl lg:text-7xl">
@@ -26,7 +26,7 @@ export default function Home() {
       </section>
 
       <section className="site-container grid gap-6 py-16 md:grid-cols-2 lg:py-20">
-        <article className="surface-card p-7 sm:p-9">
+            <article className="surface-card p-7 sm:p-9">
           <h2 className="text-2xl font-bold text-ink">For employers</h2>
           <p className="mt-3 max-w-xl leading-7 text-ink-muted">
             Tell us who you need and we’ll send you a shortlist of people worth
@@ -48,7 +48,7 @@ export default function Home() {
         </article>
       </section>
 
-      <section className="bg-brand-surface">
+      <section className="gradient-panel">
         <div className="site-container py-14 sm:py-20">
           <p className="eyebrow">What we do</p>
           <h2 className="section-title mt-4">Our services</h2>

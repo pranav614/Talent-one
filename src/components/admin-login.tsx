@@ -24,7 +24,7 @@ export function AdminLogin() {
     } finally { setBusy(false); }
   }
 
-  return <div className="mx-auto max-w-md py-8"><section className="surface-card p-7 sm:p-10">
+  return <div className="mx-auto max-w-md py-8"><section className="surface-card-plain p-7 sm:p-10">
     <p className="eyebrow">Talent One · Admin</p>
     <h1 className="mt-4 text-3xl font-bold tracking-tight text-ink">Admin access</h1>
     <p className="mt-4 leading-7 text-ink-muted">Enter your PIN to view messages.</p>

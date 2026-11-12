@@ -30,7 +30,7 @@ export default function AboutPage() {
           matches that last.
         </p>
       </section>
-      <section className="bg-brand-surface">
+      <section className="gradient-panel">
         <div className="site-container py-14 sm:py-20">
           <h2 className="section-title">What we stand for</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
@@ -45,7 +45,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      <section className="site-container py-14 sm:py-20">
+      <section className="site-container py-16 sm:py-24">
         <h2 className="section-title">Meet the team</h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {[

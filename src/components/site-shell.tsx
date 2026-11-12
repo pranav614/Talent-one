@@ -12,24 +12,24 @@ const navigation = [
 export function SiteHeader() {
   return (
     <header className="border-b border-line bg-white">
-      <div className="site-container flex min-h-20 flex-wrap items-center justify-between gap-x-8 gap-y-3 py-4">
+      <div className="site-container flex flex-col items-stretch gap-5 py-4 sm:min-h-20 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
         <Link className="brand-wordmark" href="/" aria-label="Talent One home">
           TALENT ONE
         </Link>
         <nav
           aria-label="Main navigation"
-          className="flex flex-wrap items-center justify-end gap-x-5 gap-y-2 sm:gap-x-7"
+          className="mobile-navigation -mx-5 flex items-center justify-start gap-x-6 overflow-x-auto px-5 pb-1 sm:mx-0 sm:justify-end sm:gap-x-7 sm:overflow-visible sm:px-0 sm:pb-0"
         >
           {navigation.map((item) => (
             <Link
-              className="text-sm font-medium text-ink-muted transition hover:text-brand sm:text-base"
+              className="shrink-0 whitespace-nowrap text-base font-medium text-ink-muted transition hover:text-brand sm:text-lg"
               href={item.href}
               key={item.href}
             >
               {item.label}
             </Link>
           ))}
-          <Link className="button-primary px-5 py-3 text-sm sm:text-base" href="/contact">
+          <Link className="button-primary shrink-0 whitespace-nowrap px-6 py-3 text-base" href="/contact">
             Submit your CV
           </Link>
         </nav>

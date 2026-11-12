@@ -51,7 +51,7 @@ export function JobBrowser() {
   return (
     <div>
       <form
-        className="grid gap-3 rounded-2xl border border-line bg-white p-3 shadow-sm lg:grid-cols-[1.2fr_1.2fr_1.2fr_1.2fr_auto]"
+        className="grid gap-3 rounded-3xl border border-line bg-white p-4 shadow-[0_14px_40px_rgba(17,29,49,0.06)] sm:p-5 lg:grid-cols-[1.2fr_1.2fr_1.2fr_1.2fr_auto]"
         onSubmit={(event) => event.preventDefault()}
       >
         <label className="sr-only" htmlFor="job-keyword">
@@ -107,7 +107,7 @@ export function JobBrowser() {
         </button>
       </form>
 
-      <p className="my-8 text-base text-ink-muted" aria-live="polite">
+      <p className="my-10 text-lg text-ink-muted" aria-live="polite">
         {loading ? "Loading jobs…" : error || `${visibleJobs.length} ${visibleJobs.length === 1 ? "job" : "jobs"} found`}
       </p>
 
@@ -116,7 +116,7 @@ export function JobBrowser() {
           {visibleJobs.map((job) => {
             const isExpanded = expandedJob === job.id;
             return (
-              <li className="surface-card p-5 sm:p-7" key={job.id}>
+              <li className="surface-card-plain p-6 sm:p-7" key={job.id}>
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <h2 className="text-xl font-bold tracking-tight text-ink sm:text-2xl">
@@ -160,7 +160,7 @@ export function JobBrowser() {
           })}
         </ul>
       ) : error ? null : (
-        <div className="surface-card px-6 py-12 text-center">
+        <div className="surface-card-plain px-6 py-12 text-center">
           <h2 className="text-xl font-bold text-ink">No roles match yet</h2>
           <p className="mt-2 text-ink-muted">
             Try broadening your search or clearing one of the filters.

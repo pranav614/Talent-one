@@ -6,10 +6,10 @@ import { SiteShell } from "@/components/site-shell";
 export default function ContactPage() {
   return (
     <SiteShell>
-      <section className="site-container py-12 sm:py-16 lg:py-20">
+      <section className="site-container py-16 sm:py-20 lg:py-24">
         <p className="eyebrow">Contact</p>
         <h1 className="page-title mt-5">Let’s talk</h1>
-        <div className="mt-9 grid gap-6 lg:grid-cols-2">
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <Suspense fallback={<ContactForm />}>
             <JobAwareContactForm />
           </Suspense>

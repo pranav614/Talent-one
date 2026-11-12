@@ -27,7 +27,7 @@ const steps = [
 export default function EmployersPage() {
   return (
     <SiteShell>
-      <section className="bg-brand-surface">
+      <section className="gradient-panel">
         <div className="site-container py-16 sm:py-20 lg:py-24">
           <p className="eyebrow">For employers</p>
           <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-ink sm:text-6xl">
@@ -42,7 +42,7 @@ export default function EmployersPage() {
           </Link>
         </div>
       </section>
-      <section className="site-container py-14 sm:py-20">
+      <section className="site-container py-16 sm:py-24">
         <h2 className="section-title">What we offer</h2>
         <div className="mt-7 grid gap-5 md:grid-cols-3">
           {services.map((service) => (
@@ -55,7 +55,7 @@ export default function EmployersPage() {
           ))}
         </div>
       </section>
-      <section className="site-container pb-14 sm:pb-20">
+      <section className="site-container pb-16 sm:pb-24">
         <h2 className="section-title">Our process</h2>
         <ol className="mt-8 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
