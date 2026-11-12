@@ -1,21 +1,18 @@
+import { Suspense } from "react";
 import { ContactForm } from "@/components/contact-form";
+import { JobAwareContactForm } from "@/components/job-aware-contact-form";
 import { SiteShell } from "@/components/site-shell";
 
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ job?: string | string[] }>;
-}) {
-  const params = await searchParams;
-  const jobParam = Array.isArray(params.job) ? params.job[0] : params.job;
-  const jobTitle = jobParam?.slice(0, 160);
+export default function ContactPage() {
   return (
     <SiteShell>
       <section className="site-container py-12 sm:py-16 lg:py-20">
         <p className="eyebrow">Contact</p>
         <h1 className="page-title mt-5">Let’s talk</h1>
         <div className="mt-9 grid gap-6 lg:grid-cols-2">
-          <ContactForm jobTitle={jobTitle} />
+          <Suspense fallback={<ContactForm />}>
+            <JobAwareContactForm />
+          </Suspense>
           <aside className="surface-card space-y-7 p-6 sm:p-8">
             <div>
               <h2 className="text-xl font-bold text-ink">Office</h2>
