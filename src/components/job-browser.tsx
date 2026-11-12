@@ -149,7 +149,7 @@ export function JobBrowser() {
                     </p>
                     <Link
                       className="button-primary mt-5 inline-flex"
-                      href="/contact"
+                      href={`/contact?job=${encodeURIComponent(job.title)}`}
                     >
                       Ask us about this role
                     </Link>
